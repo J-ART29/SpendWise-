@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SpendWise Budget Tracker</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>SpendWise</h1>
+        <p>Track your budget and manage your spending.</p>
+    </header>
+
+    <main>
+        <section class="budget-card">
+            <h2>Manage Your Budget</h2>
+            <p>
+                Track your budget, monitor expenses,
+                and calculate your remaining balance.
+            </p>
+            <button id="start-budget" type="button">Start Budgeting</button>
+            <button id="track-expenses" class="secondary-button" type="button">Track individual expenses</button>
+            <form id="budget-form" class="budget-form" hidden>
+                <label for="budget-input">Monthly budget (KSh)</label>
+                <input id="budget-input" name="budget" type="number" min="0.01" step="0.01" placeholder="20000" required>
+
+                <h3>Expenses</h3>
+                <div id="expense-fields"></div>
+                <button id="add-expense" class="secondary-button" type="button">Add another expense</button>
+                <p id="form-message" class="form-message" role="alert"></p>
+                <button type="submit">Calculate budget</button>
+            </form>
+            <section id="budget-summary" class="budget-summary" aria-live="polite" hidden>
+                <h3>Your budget summary</h3>
+                <dl class="totals">
+                    <div>
+                        <dt>Monthly budget</dt>
+                        <dd id="monthly-budget"></dd>
+                    </div>
+                    <div>
+                        <dt>Total expenses</dt>
+                        <dd id="total-expenses"></dd>
+                    </div>
+                    <div class="balance">
+                        <dt>Remaining balance</dt>
+                        <dd id="remaining-balance"></dd>
+                    </div>
+                </dl>
+                <h4>Expenses</h4>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Amount (KSh)</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="expense-list"></tbody>
+                    </table>
+                </div>
+            </section>
+        </section>
+        <section class="budget-card quick-calculator">
+            <h2>Try a budget calculation</h2>
+            <p>Check expected results before testing your JavaScript in the browser.</p>
+            <form id="quick-calculator-form" class="calculator-form">
+                <label for="quick-budget">Monthly budget (KES)</label>
+                <input id="quick-budget" name="budget" type="number" min="0" step="0.01" value="20000" required>
+
+                <label for="quick-expenses">Total expenses (KES)</label>
+                <input id="quick-expenses" name="expenses" type="number" min="0" step="0.01" value="7500" required>
+
+                <button type="submit">Calculate</button>
+            </form>
+            <p id="calculator-message" class="form-message" role="alert"></p>
+            <dl class="calculator-results" aria-live="polite">
+                <div>
+                    <dt>Remaining balance</dt>
+                    <dd id="quick-balance">12,500 KES</dd>
+                </div>
+                <div>
+                    <dt>Budget spent</dt>
+                    <dd id="quick-percentage">37.50%</dd>
+                </div>
+            </dl>
+            <p id="quick-status" class="calculator-status" aria-live="polite">Within budget.</p>
+        </section>
+        <section class="budget-card tips-card">
+            <h2>Budgeting Tips</h2>
+            <ul>
+                <li>Set aside money for essentials like rent before planning discretionary spending.</li>
+                <li>Track small daily costs, such as meals and transport, to spot spending patterns.</li>
+                <li>Choose a realistic monthly savings target and review your budget regularly.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 SpendWise</p>
+    </footer>
+</body>
+</html>
